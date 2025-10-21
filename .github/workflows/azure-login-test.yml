@@ -3,7 +3,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   test:
-    environment: test
+    environment: prod
 
     permissions:
       id-token: write
