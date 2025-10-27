@@ -22,4 +22,3 @@ resource "azurerm_storage_account" "sa" {
     Environment = var.environment
   }
 }
-
