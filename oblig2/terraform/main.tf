@@ -21,6 +21,5 @@ resource "azurerm_storage_account" "sa" {
   tags = {
     Environment = var.environment
     Project     = var.project_name
-    Test        = "TestTag"
   }
 }
