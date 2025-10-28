@@ -31,9 +31,9 @@ Write-Host ""
 
 # Create artifact
 Write-Host "2️⃣ Creating artifact..." -ForegroundColor Yellow
-$ARTIFACT_NAME = "terraform-$VERSION.tar.gz"
+$ARTIFACT_NAME = "terraform-$VERSION.zip"
 
-tar -czf $ARTIFACT_NAME terraform/ environments/ backend-configs/
+Compress-Archive -Path terraform, environments, backend-configs -DestinationPath $ARTIFACT_NAME -Force
 
 Write-Host "✅ Artifact created: $ARTIFACT_NAME" -ForegroundColor Green
 Write-Host ""
