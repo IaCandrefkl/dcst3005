@@ -27,7 +27,7 @@ New-Item -ItemType Directory -Path $WORKSPACE | Out-Null
 
 # Extract artifact
 Write-Host "1️⃣ Extracting artifact..." -ForegroundColor Yellow
-tar -xzf $Artifact -C $WORKSPACE
+Expand-Archive -Path $Artifact -DestinationPath $WORKSPACE -Force
 Write-Host "✅ Artifact extracted" -ForegroundColor Green
 Write-Host ""
 
@@ -43,15 +43,15 @@ Write-Host "3️⃣ Planning deployment..." -ForegroundColor Yellow
 terraform plan -var-file="../environments/$Environment.tfvars" -out=tfplan
 Write-Host ""
 
-# # Apply
-# Write-Host "4️⃣ Applying changes..." -ForegroundColor Yellow
-# terraform apply -auto-approve tfplan
-# Write-Host ""
+# Apply
+Write-Host "4️⃣ Applying changes..." -ForegroundColor Yellow
+terraform apply -auto-approve tfplan
+Write-Host ""
 
-# # Show outputs
-# Write-Host "✅ Deployment complete!" -ForegroundColor Green
-# Write-Host ""
-# Write-Host "📤 Outputs:" -ForegroundColor Cyan
-# terraform output
+# Show outputs
+Write-Host "✅ Deployment complete!" -ForegroundColor Green
+Write-Host ""
+Write-Host "📤 Outputs:" -ForegroundColor Cyan
+terraform output
 
 Set-Location ../..
